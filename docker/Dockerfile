@@ -10,7 +10,7 @@ FROM node:20-slim AS web-builder
 WORKDIR /app/apps/dsa-web
 
 COPY apps/dsa-web/package.json apps/dsa-web/package-lock.json ./
-RUN --mount=type=cache,id=dsa-npm-cache,target=/root/.npm npm ci
+RUN npm ci
 
 COPY apps/dsa-web/ ./
 RUN npm run build
@@ -46,7 +46,7 @@ RUN groupadd -g 1000 dsa && \
 COPY requirements.txt .
 
 # 安装 Python 依赖
-RUN --mount=type=cache,id=dsa-pip-cache,target=/root/.cache/pip pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # 复制应用代码
 COPY *.py ./
