@@ -2,6 +2,10 @@
 .env
 .env.*
 *.env
+.gh-cli-session/
+.railway-home/
+.tools/
+.npm-cache/
 *.env.local
 .env.*.local
 
