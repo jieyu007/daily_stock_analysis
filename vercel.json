@@ -3,7 +3,7 @@
   "framework": "vite",
   "installCommand": "npm --prefix apps/dsa-web ci",
   "buildCommand": "npm --prefix apps/dsa-web run build",
-  "outputDirectory": "apps/dsa-web/dist",
+  "outputDirectory": "static",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
