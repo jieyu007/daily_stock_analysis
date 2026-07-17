@@ -1,4 +1,9 @@
 const configuredApiBaseUrl = import.meta.env.VITE_API_URL?.trim();
+// The hosted web app is a static Vercel deployment, so it must not fall back
+// to its own origin for API calls when the build environment omits VITE_API_URL.
+const hostedApiBaseUrl = import.meta.env.PROD
+  ? 'https://daily-stock-analysis-production-9a14.up.railway.app'
+  : '';
 
 declare const __APP_PACKAGE_VERSION__: string | undefined;
 declare const __APP_BUILD_TIME__: string | undefined;
@@ -8,7 +13,7 @@ const UNKNOWN_BUILD_TIME = '未提供';
 
 // 默认保持同源 API，避免生产/静态部署时把请求错误打到用户本机 localhost。
 // 仅在显式提供 VITE_API_URL 时才覆盖默认行为。
-export const API_BASE_URL = configuredApiBaseUrl || '';
+export const API_BASE_URL = configuredApiBaseUrl || hostedApiBaseUrl;
 
 export type WebBuildInfo = {
   version: string;
