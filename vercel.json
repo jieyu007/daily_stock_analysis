@@ -1,6 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
+  "env": {
+    "VITE_API_URL": "https://daily-stock-analysis-production-9a14.up.railway.app"
+  },
   "installCommand": "npm --prefix apps/dsa-web ci",
   "buildCommand": "npm --prefix apps/dsa-web run build",
   "outputDirectory": "static",
