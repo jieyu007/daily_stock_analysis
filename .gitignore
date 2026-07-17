@@ -4,6 +4,7 @@
 *.env
 .gh-cli-session/
 .railway-home/
+.vercel-home/
 .tools/
 .npm-cache/
 *.env.local
